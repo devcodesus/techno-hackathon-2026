@@ -4,7 +4,7 @@
    ========================================================= */
 
 const QUIZ_BACKEND_URL =
-    "PASTE_YOUR_QUIZ_BACKEND_URL_HERE";
+    "https://script.google.com/macros/s/AKfycbyFwzFQSHsHgKDgxFEyLufRU3mPtz-NkB5Gy05GFiNbGyN_Ntz8qYcV3tWQYiP5ryxD5w/exec";
 
 
 /* =========================================================
