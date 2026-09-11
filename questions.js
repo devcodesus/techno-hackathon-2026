@@ -67,107 +67,107 @@ const QUESTION_BANK = [
 
 
 /* =========================================================
-   31–50 : GENERAL COMPUTER KNOWLEDGE
-   Difficulty: Easy → Moderate
+   31–50 : FUNDAMENTALS OF COMPUTER
+   Difficulty: Easy → Moderate → Tough
    ========================================================= */
 
-{id:31,section:"COMPUTER",text:"What is the full form of CPU?",options:["Computer Processing Unit","Central Program Unit","Computer Program Utility","Central Processing Unit"],answer:3},
+{id:31,section:"COMPUTER",text:"Which component of a computer performs most arithmetic and logical operations?",options:["RAM","CPU","Hard Disk","Monitor"],answer:1},
 
-{id:32,section:"COMPUTER",text:"Which memory is temporary and loses its data when power is turned off?",options:["ROM","Hard Disk","RAM","SSD"],answer:2},
+{id:32,section:"COMPUTER",text:"Which type of memory retains its contents even when the computer is switched off?",options:["RAM","Cache","ROM","Register"],answer:2},
 
-{id:33,section:"COMPUTER",text:"Which of these is an operating system?",options:["Google","Linux","HTML","Python"],answer:1},
+{id:33,section:"COMPUTER",text:"Which of the following is system software?",options:["Microsoft Word","Operating System","Web Browser","Media Player"],answer:1},
 
-{id:34,section:"COMPUTER",text:"Which device is mainly used to type text into a computer?",options:["Keyboard","Monitor","Speaker","Printer"],answer:0},
+{id:34,section:"COMPUTER",text:"Which unit is used to measure the clock speed of a processor?",options:["Gigahertz (GHz)","Gigabyte (GB)","Megabyte (MB)","Pixel"],answer:0},
 
-{id:35,section:"COMPUTER",text:"Which device is used to display output?",options:["Keyboard","Mouse","Monitor","Scanner"],answer:2},
+{id:35,section:"COMPUTER",text:"Which of the following is an example of secondary storage?",options:["CPU Register","Cache Memory","RAM","SSD"],answer:3},
 
-{id:36,section:"COMPUTER",text:"Which device is used to move the pointer on a computer screen?",options:["Mouse","Printer","Speaker","Microphone"],answer:0},
+{id:36,section:"COMPUTER",text:"Which memory is generally faster than RAM and is located close to or inside the CPU?",options:["Hard Disk","Cache Memory","DVD","Pen Drive"],answer:1},
 
-{id:37,section:"COMPUTER",text:"Which number system uses only 0 and 1?",options:["Decimal","Octal","Roman","Binary"],answer:3},
+{id:37,section:"COMPUTER",text:"What is the main purpose of an IP address?",options:["To identify a device on a network","To store files","To increase CPU speed","To protect the keyboard"],answer:0},
 
-{id:38,section:"COMPUTER",text:"What does WWW stand for?",options:["World Web Window","World Wide Web","Wide World Web","Web World Wide"],answer:1},
+{id:38,section:"COMPUTER",text:"Which protocol is primarily used to transfer web pages between a browser and a web server?",options:["FTP","SMTP","HTTP","POP3"],answer:2},
 
-{id:39,section:"COMPUTER",text:"Which language is mainly used to structure web pages?",options:["HTML","CSS","SQL","Java"],answer:0},
+{id:39,section:"COMPUTER",text:"Which of the following is NOT an input device?",options:["Scanner","Keyboard","Microphone","Projector"],answer:3},
 
-{id:40,section:"COMPUTER",text:"Which language is commonly used to style web pages?",options:["HTML","SQL","C","CSS"],answer:3},
+{id:40,section:"COMPUTER",text:"What happens when a computer performs a reboot?",options:["Only the monitor is restarted","The operating system starts again","All files are permanently deleted","The hard disk is formatted"],answer:1},
 
-{id:41,section:"COMPUTER",text:"Which of these is a programming language?",options:["Google","Java","Windows","Oracle"],answer:1},
+{id:41,section:"COMPUTER",text:"Which number is equivalent to binary 1010 in decimal?",options:["8","10","12","14"],answer:1},
 
-{id:42,section:"COMPUTER",text:"Which data structure follows FIFO?",options:["Stack","Tree","Queue","Array"],answer:2},
+{id:42,section:"COMPUTER",text:"Which of the following correctly represents 1 byte?",options:["4 bits","8 bits","16 bits","32 bits"],answer:1},
 
-{id:43,section:"COMPUTER",text:"Which data structure follows LIFO?",options:["Queue","Stack","Array","Graph"],answer:1},
+{id:43,section:"COMPUTER",text:"Which layer of the OSI model is responsible for logical addressing and routing?",options:["Transport Layer","Data Link Layer","Network Layer","Session Layer"],answer:2},
 
-{id:44,section:"COMPUTER",text:"Which SQL command is used to retrieve data from a table?",options:["DELETE","UPDATE","SELECT","INSERT"],answer:2},
+{id:44,section:"COMPUTER",text:"Which data structure is most suitable for implementing a printer's waiting jobs?",options:["Stack","Queue","Tree","Graph"],answer:1},
 
-{id:45,section:"COMPUTER",text:"What does URL stand for?",options:["Uniform Resource Locator","Universal Resource Link","User Resource Locator","Uniform Record Link"],answer:0},
+{id:45,section:"COMPUTER",text:"Which SQL command is used to remove specific records from a table?",options:["DROP","DELETE","REMOVE","CLEAR"],answer:1},
 
-{id:46,section:"COMPUTER",text:"Which device forwards data between different networks?",options:["Keyboard","Scanner","Monitor","Router"],answer:3},
+{id:46,section:"COMPUTER",text:"What is the main purpose of DNS on the Internet?",options:["Encrypt data","Convert domain names into IP addresses","Compress files","Increase bandwidth"],answer:1},
 
-{id:47,section:"COMPUTER",text:"Which of these is a web browser?",options:["Windows","Chrome","Linux","Oracle"],answer:1},
+{id:47,section:"COMPUTER",text:"Which statement about RAM is correct?",options:["It is non-volatile memory","It stores data permanently","It provides temporary working storage for running programs","It is slower than secondary storage"],answer:2},
 
-{id:48,section:"COMPUTER",text:"What is the main function of an operating system?",options:["Manage computer resources","Print documents only","Create websites only","Play music only"],answer:0},
+{id:48,section:"COMPUTER",text:"Which of the following would most directly improve the number of programs a computer can keep active smoothly at the same time?",options:["Increasing RAM","Increasing monitor size","Changing the keyboard","Increasing speaker volume"],answer:0},
 
-{id:49,section:"COMPUTER",text:"Which of the following is an example of cloud storage?",options:["RAM","CPU","Google Drive","Keyboard"],answer:2},
+{id:49,section:"COMPUTER",text:"A user enters a website address in a browser. Which service helps translate the domain name into the server's IP address?",options:["DHCP","DNS","FTP","SMTP"],answer:1},
 
-{id:50,section:"COMPUTER",text:"Which protocol is commonly used to securely browse websites?",options:["HTTP","FTP","SMTP","HTTPS"],answer:3},
+{id:50,section:"COMPUTER",text:"Which statement best describes virtual memory?",options:["A type of CPU register","A portion of storage used to extend available memory when RAM is insufficient","A permanent replacement for RAM","Memory located only inside the processor"],answer:1},
 
 
 /* =========================================================
    51–75 : LOGICAL & REASONING
-   Difficulty: Easy → Moderate → Challenging
+   Difficulty: Easy → Moderate → Tough
    ========================================================= */
 
-{id:51,section:"REASONING",text:"Find the next number: 2, 4, 6, 8, ?",options:["9","11","10","12"],answer:2},
+{id:51,section:"REASONING",text:"Find the next number: 3, 6, 12, 24, ?",options:["36","42","48","54"],answer:2},
 
-{id:52,section:"REASONING",text:"Find the next number: 5, 10, 15, 20, ?",options:["22","24","30","25"],answer:3},
+{id:52,section:"REASONING",text:"Find the next number: 2, 5, 10, 17, 26, ?",options:["35","37","39","41"],answer:1},
 
-{id:53,section:"REASONING",text:"Find the next number: 3, 6, 12, 24, ?",options:["36","48","42","50"],answer:1},
+{id:53,section:"REASONING",text:"Find the next number: 81, 27, 9, 3, ?",options:["1","0","2","6"],answer:0},
 
-{id:54,section:"REASONING",text:"Find the odd one out.",options:["Carrot","Apple","Mango","Banana"],answer:0},
+{id:54,section:"REASONING",text:"Find the odd one out.",options:["16","25","36","48"],answer:3},
 
-{id:55,section:"REASONING",text:"Book is related to Reading. Pen is related to:",options:["Running","Cooking","Driving","Writing"],answer:3},
+{id:55,section:"REASONING",text:"Book is related to Author in the same way as Painting is related to:",options:["Gallery","Painter","Colour","Canvas"],answer:1},
 
-{id:56,section:"REASONING",text:"If CAT is coded as DBU, how is DOG coded?",options:["EPH","EOG","DPH","FPH"],answer:0},
+{id:56,section:"REASONING",text:"If CAT is coded as DBU, then DOG is coded as:",options:["EPH","EOG","DPH","FPH"],answer:0},
 
-{id:57,section:"REASONING",text:"A person walks north and then turns right. Which direction is the person facing?",options:["West","South","East","North"],answer:2},
+{id:57,section:"REASONING",text:"If COMPUTER is written as DPNQVUFS, how will PRINTER be written?",options:["QSJOUFS","QTKOUFS","QSJOUFR","PSJNTDS"],answer:0},
 
-{id:58,section:"REASONING",text:"A is taller than B. B is taller than C. Who is the shortest?",options:["A","C","B","Cannot say"],answer:1},
+{id:58,section:"REASONING",text:"A person walks 5 km north, then 3 km east, and then 5 km south. In which direction is the person from the starting point?",options:["North","South","East","West"],answer:2},
 
-{id:59,section:"REASONING",text:"Find the next letter: A, B, C, D, ?",options:["F","G","H","E"],answer:3},
+{id:59,section:"REASONING",text:"A is taller than B. C is taller than A. D is shorter than B. Who is the tallest?",options:["A","B","C","D"],answer:2},
 
-{id:60,section:"REASONING",text:"If today is Monday, what day will it be after 3 days?",options:["Thursday","Tuesday","Wednesday","Friday"],answer:0},
+{id:60,section:"REASONING",text:"If today is Wednesday, what day will it be 45 days from today?",options:["Friday","Saturday","Sunday","Monday"],answer:1},
 
-{id:61,section:"REASONING",text:"Which number is different from the others?",options:["2","9","4","6"],answer:1},
+{id:61,section:"REASONING",text:"Find the missing number: 4, 9, 19, 39, ?",options:["69","79","89","99"],answer:1},
 
-{id:62,section:"REASONING",text:"If SUN is coded as TVO, how is MOON coded?",options:["NPPM","MPPN","NOOP","NPPO"],answer:3},
+{id:62,section:"REASONING",text:"If in a certain code, TABLE is written as UBCMF, how is CHAIR written?",options:["DIBJS","DIBIR","DHBJS","EIBJS"],answer:0},
 
-{id:63,section:"REASONING",text:"Ravi is the brother of Sita. How is Ravi related to Sita?",options:["Father","Uncle","Brother","Cousin"],answer:2},
+{id:63,section:"REASONING",text:"Pointing to a man, Ravi said, 'He is the son of my father's only son.' How is the man related to Ravi?",options:["Brother","Father","Son","Uncle"],answer:2},
 
-{id:64,section:"REASONING",text:"A person is facing east. He turns left. Which direction is he facing?",options:["South","North","East","West"],answer:1},
+{id:64,section:"REASONING",text:"A person is facing north. He turns right, then right again, and then left. Which direction is he facing?",options:["North","South","East","West"],answer:3},
 
-{id:65,section:"REASONING",text:"Find the next number: 10, 20, 30, 40, ?",options:["45","55","60","50"],answer:3},
+{id:65,section:"REASONING",text:"In a row of students, Rahul is 8th from the left and 12th from the right. How many students are there in the row?",options:["18","19","20","21"],answer:1},
 
-{id:66,section:"REASONING",text:"If A=1, B=2, C=3, what is the value of D?",options:["2","3","4","5"],answer:2},
+{id:66,section:"REASONING",text:"Find the next pair: AZ, BY, CX, DW, ?",options:["EV","FU","EX","EW"],answer:0},
 
-{id:67,section:"REASONING",text:"All cats are animals. Tommy is a cat. What must be true?",options:["Tommy is an animal","Tommy is a dog","All animals are cats","Tommy is a bird"],answer:0},
+{id:67,section:"REASONING",text:"Statements: All programmers are logical. Some students are programmers. Which conclusion must be true?",options:["All students are logical","Some students are logical","No student is logical","All logical people are programmers"],answer:1},
 
-{id:68,section:"REASONING",text:"Find the next pair: AB, CD, EF, ?",options:["FG","GH","HI","JK"],answer:1},
+{id:68,section:"REASONING",text:"Find the missing number: 3, 8, 15, 24, 35, ?",options:["46","48","50","52"],answer:1},
 
-{id:69,section:"REASONING",text:"If 1 January is Monday, what day is 8 January?",options:["Monday","Sunday","Tuesday","Wednesday"],answer:0},
+{id:69,section:"REASONING",text:"If A=1, B=2, ..., Z=26, what is the value of CODE?",options:["25","27","29","31"],answer:1},
 
-{id:70,section:"REASONING",text:"Find the missing number: 2, 4, 8, 16, ?",options:["20","24","30","32"],answer:3},
+{id:70,section:"REASONING",text:"Five people P, Q, R, S and T are standing in a line. P is before Q, Q is before R, R is before S, and S is before T. Who is in the middle?",options:["Q","R","S","T"],answer:1},
 
-{id:71,section:"REASONING",text:"Find the next number: 2, 5, 10, 17, 26, ?",options:["35","37","39","41"],answer:1},
+{id:71,section:"REASONING",text:"Find the next number: 1, 2, 6, 24, 120, ?",options:["240","360","720","840"],answer:2},
 
-{id:72,section:"REASONING",text:"If SOUTH is written as HTUOS, how is NORTH written?",options:["HTRON","NROHT","HTNOR","NORTH"],answer:0},
+{id:72,section:"REASONING",text:"If MONDAY is coded as 123456 and DAY is coded as 456, what code represents MON?",options:["123","234","345","156"],answer:0},
 
-{id:73,section:"REASONING",text:"A student is 5th from the left in a row and 6th from the right. How many students are there?",options:["9","10","11","12"],answer:1},
+{id:73,section:"REASONING",text:"A clock shows 3:00. If the minute hand moves 180 degrees clockwise, what time will it show?",options:["3:30","6:00","9:00","12:00"],answer:1},
 
-{id:74,section:"REASONING",text:"If P is greater than Q, Q is greater than R, and R is greater than S, which is the smallest?",options:["P","Q","R","S"],answer:3},
+{id:74,section:"REASONING",text:"Three statements are given: All A are B. All B are C. Which conclusion is definitely true?",options:["All C are A","All A are C","Some C are not B","No A is C"],answer:1},
 
-{id:75,section:"REASONING",text:"Find the next number: 1, 4, 9, 16, 25, ?",options:["30","32","36","40"],answer:2},
+{id:75,section:"REASONING",text:"Find the missing number: 2, 6, 12, 20, 30, ?",options:["36","40","42","48"],answer:2},
 
-
+   
 /* =========================================================
    76–100 : C PROGRAMMING / CODING SNIPPETS
    Difficulty: Easy → Moderate → Challenging
