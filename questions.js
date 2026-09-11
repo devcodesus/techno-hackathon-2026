@@ -168,57 +168,59 @@ const QUESTION_BANK = [
 /* =========================
    76–100 : CODING SNIPPETS
    ========================= */
+/* =========================
+   76–100 : C PROGRAMMING
+   ========================= */
 
-{id:76,section:"CODING",text:"What will be printed by this Java program?",code:"int x = 5;\nSystem.out.println(x);",options:["5","4","6","Error"],answer:0},
+{id:76,section:"CODING",text:"What will be printed by this C program?",code:"int x = 5;\nprintf(\"%d\", x);",options:["5","4","6","Error"],answer:0},
 
-{id:77,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 5;\nSystem.out.println(a + b);",options:["5","10","15","50"],answer:2},
+{id:77,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 5;\nprintf(\"%d\", a + b);",options:["5","10","15","50"],answer:2},
 
-{id:78,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 3;\nSystem.out.println(a - b);",options:["5","13","30","7"],answer:3},
+{id:78,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 3;\nprintf(\"%d\", a - b);",options:["5","13","30","7"],answer:3},
 
-{id:79,section:"CODING",text:"What is the output?",code:"int a = 4;\nint b = 3;\nSystem.out.println(a * b);",options:["12","7","16","1"],answer:0},
+{id:79,section:"CODING",text:"What is the output?",code:"int a = 4;\nint b = 3;\nprintf(\"%d\", a * b);",options:["12","7","16","1"],answer:0},
 
-{id:80,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 2;\nSystem.out.println(a / b);",options:["2","5","8","20"],answer:1},
+{id:80,section:"CODING",text:"What is the output?",code:"int a = 10;\nint b = 2;\nprintf(\"%d\", a / b);",options:["2","5","8","20"],answer:1},
 
-{id:81,section:"CODING",text:"What is the output?",code:"int x = 10;\nSystem.out.println(x % 3);",options:["1","0","2","3"],answer:0},
+{id:81,section:"CODING",text:"What is the output?",code:"int x = 10;\nprintf(\"%d\", x % 3);",options:["1","0","2","3"],answer:0},
 
-{id:82,section:"CODING",text:"What is printed?",code:"int x = 5;\nif(x > 3)\n    System.out.println(\"YES\");\nelse\n    System.out.println(\"NO\");",options:["NO","5","YES","Error"],answer:2},
+{id:82,section:"CODING",text:"What is printed?",code:"int x = 5;\nif(x > 3)\n    printf(\"YES\");\nelse\n    printf(\"NO\");",options:["NO","5","YES","Error"],answer:2},
 
-{id:83,section:"CODING",text:"What is printed?",code:"int x = 2;\nif(x == 2)\n    System.out.println(\"Correct\");",options:["2","Correct","False","Error"],answer:1},
+{id:83,section:"CODING",text:"What is printed?",code:"int x = 2;\nif(x == 2)\n    printf(\"Correct\");",options:["2","Correct","False","Error"],answer:1},
 
-{id:84,section:"CODING",text:"What is the output?",code:"for(int i = 1; i <= 3; i++)\n    System.out.print(i);",options:["012","321","111","123"],answer:3},
+{id:84,section:"CODING",text:"What is the output?",code:"for(int i = 1; i <= 3; i++)\n    printf(\"%d\", i);",options:["012","321","111","123"],answer:3},
 
-{id:85,section:"CODING",text:"What is the output?",code:"for(int i = 0; i < 3; i++)\n    System.out.print(\"A\");",options:["AAA","A","AA","AAAA"],answer:0},
+{id:85,section:"CODING",text:"What is the output?",code:"for(int i = 0; i < 3; i++)\n    printf(\"A\");",options:["AAA","A","AA","AAAA"],answer:0},
 
-{id:86,section:"CODING",text:"What is printed?",code:"int sum = 0;\nfor(int i = 1; i <= 3; i++)\n    sum += i;\nSystem.out.println(sum);",options:["3","5","6","9"],answer:2},
+{id:86,section:"CODING",text:"What is printed?",code:"int sum = 0;\nfor(int i = 1; i <= 3; i++)\n    sum += i;\nprintf(\"%d\", sum);",options:["3","5","6","9"],answer:2},
 
-{id:87,section:"CODING",text:"What is the output?",code:"int x = 5;\nx++;\nSystem.out.println(x);",options:["4","5","7","6"],answer:3},
+{id:87,section:"CODING",text:"What is the output?",code:"int x = 5;\nx++;\nprintf(\"%d\", x);",options:["4","5","7","6"],answer:3},
 
-{id:88,section:"CODING",text:"What is the output?",code:"int x = 5;\nSystem.out.println(++x);",options:["4","6","5","7"],answer:1},
+{id:88,section:"CODING",text:"What is the output?",code:"int x = 5;\nprintf(\"%d\", ++x);",options:["4","6","5","7"],answer:1},
 
-{id:89,section:"CODING",text:"What is printed?",code:"String s = \"JAVA\";\nSystem.out.println(s.length());",options:["3","5","6","4"],answer:3},
+{id:89,section:"CODING",text:"What is the output of this C program?",code:"int a = 5;\nint b = 2;\nprintf(\"%d\", a + b);",options:["7","10","3","2"],answer:0},
 
-{id:90,section:"CODING",text:"What is the output?",code:"int[] a = {10, 20, 30};\nSystem.out.println(a[0]);",options:["20","10","30","0"],answer:1},
+{id:90,section:"CODING",text:"What is the output?",code:"int a[] = {10, 20, 30};\nprintf(\"%d\", a[0]);",options:["20","10","30","0"],answer:1},
 
-{id:91,section:"CODING",text:"What is the output?",code:"int[] a = {10, 20, 30};\nSystem.out.println(a[1]);",options:["20","10","30","1"],answer:0},
+{id:91,section:"CODING",text:"What is the output?",code:"int a[] = {10, 20, 30};\nprintf(\"%d\", a[1]);",options:["20","10","30","1"],answer:0},
 
-{id:92,section:"CODING",text:"What is printed?",code:"int x = 8;\nif(x % 2 == 0)\n    System.out.println(\"Even\");\nelse\n    System.out.println(\"Odd\");",options:["Odd","8","Even","Error"],answer:2},
+{id:92,section:"CODING",text:"What is printed?",code:"int x = 8;\nif(x % 2 == 0)\n    printf(\"Even\");\nelse\n    printf(\"Odd\");",options:["Odd","8","Even","Error"],answer:2},
 
-{id:93,section:"CODING",text:"What is the output?",code:"int x = 3;\nwhile(x < 5) {\n    x++;\n}\nSystem.out.println(x);",options:["3","5","4","6"],answer:1},
+{id:93,section:"CODING",text:"What is the output?",code:"int x = 3;\nwhile(x < 5) {\n    x++;\n}\nprintf(\"%d\", x);",options:["3","5","4","6"],answer:1},
 
-{id:94,section:"CODING",text:"What is printed?",code:"int x = 1;\nfor(int i = 0; i < 3; i++)\n    x = x * 2;\nSystem.out.println(x);",options:["2","4","6","8"],answer:3},
+{id:94,section:"CODING",text:"What is printed?",code:"int x = 1;\nfor(int i = 0; i < 3; i++)\n    x = x * 2;\nprintf(\"%d\", x);",options:["2","4","6","8"],answer:3},
 
-{id:95,section:"CODING",text:"What is the output?",code:"int a = 5;\nint b = 5;\nSystem.out.println(a == b);",options:["5","false","true","Error"],answer:2},
+{id:95,section:"CODING",text:"What is the output?",code:"int a = 5;\nint b = 5;\nprintf(\"%d\", a == b);",options:["5","0","1","Error"],answer:2},
 
-{id:96,section:"CODING",text:"What is printed?",code:"int x = 10;\nint y = 20;\nint temp = x;\nx = y;\ny = temp;\nSystem.out.println(x);",options:["20","10","30","0"],answer:0},
+{id:96,section:"CODING",text:"What is printed?",code:"int x = 10;\nint y = 20;\nint temp = x;\nx = y;\ny = temp;\nprintf(\"%d\", x);",options:["20","10","30","0"],answer:0},
 
-{id:97,section:"CODING",text:"What is the output?",code:"int x = 4;\nSystem.out.println(x > 2 && x < 6);",options:["false","true","4","Error"],answer:1},
+{id:97,section:"CODING",text:"What is the output?",code:"int x = 4;\nprintf(\"%d\", x > 2 && x < 6);",options:["0","1","4","Error"],answer:1},
 
-{id:98,section:"CODING",text:"What is printed?",code:"int x = 2;\nint y = 3;\nSystem.out.println(x + y * 2);",options:["10","8","7","12"],answer:2},
+{id:98,section:"CODING",text:"What is printed?",code:"int x = 2;\nint y = 3;\nprintf(\"%d\", x + y * 2);",options:["10","8","7","12"],answer:2},
 
-{id:99,section:"CODING",text:"What is the output?",code:"int n = 3;\nint fact = 1;\nfor(int i = 1; i <= n; i++)\n    fact *= i;\nSystem.out.println(fact);",options:["6","3","9","12"],answer:0},
+{id:99,section:"CODING",text:"What is the output?",code:"int n = 3;\nint fact = 1;\nfor(int i = 1; i <= n; i++)\n    fact *= i;\nprintf(\"%d\", fact);",options:["6","3","9","12"],answer:0},
 
-{id:100,section:"CODING",text:"What is printed?",code:"int x = 10;\nif(x < 10)\n    System.out.println(\"A\");\nelse\n    System.out.println(\"B\");",options:["A","10","Error","B"],answer:3}
-
+{id:100,section:"CODING",text:"What is printed?",code:"int x = 10;\nif(x < 10)\n    printf(\"A\");\nelse\n    printf(\"B\");",options:["A","10","Error","B"],answer:3}
 ];
 
 
