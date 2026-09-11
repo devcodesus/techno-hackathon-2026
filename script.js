@@ -498,20 +498,37 @@ function sendResultToBackend(result) {
 
         try {
 
+            /* =========================================
+               CREATE HIDDEN IFRAME
+               ========================================= */
+
+            const iframe = document.createElement("iframe");
+
+            iframe.name = "quizSubmissionFrame";
+
+            iframe.style.display = "none";
+
+            document.body.appendChild(iframe);
+
+
+            /* =========================================
+               CREATE FORM
+               ========================================= */
+
             const form = document.createElement("form");
 
             form.method = "POST";
 
             form.action = QUIZ_BACKEND_URL;
 
-            form.target = "_blank";
+            form.target = "quizSubmissionFrame";
 
             form.style.display = "none";
 
 
-            /* =========================
+            /* =========================================
                CANDIDATE INFORMATION
-               ========================= */
+               ========================================= */
 
             addField(
                 form,
@@ -532,9 +549,9 @@ function sendResultToBackend(result) {
             );
 
 
-            /* =========================
+            /* =========================================
                RESULT INFORMATION
-               ========================= */
+               ========================================= */
 
             addField(
                 form,
@@ -597,24 +614,24 @@ function sendResultToBackend(result) {
             );
 
 
+            /* =========================================
+               SUBMIT SILENTLY
+               ========================================= */
+
             document.body.appendChild(form);
-
-
-            /*
-             * Submit to Google Apps Script.
-             */
 
             form.submit();
 
 
-            /*
-             * Keep the form alive long enough
-             * for the browser to complete the request.
-             */
+            /* =========================================
+               CLEAN UP AFTER REQUEST
+               ========================================= */
 
             setTimeout(() => {
 
                 form.remove();
+
+                iframe.remove();
 
                 resolve();
 
@@ -624,7 +641,7 @@ function sendResultToBackend(result) {
         } catch (error) {
 
             console.error(
-                "Quiz backend error:",
+                "Quiz backend submission error:",
                 error
             );
 
@@ -635,7 +652,6 @@ function sendResultToBackend(result) {
     });
 
 }
-
 /* =========================================================
    ADD FORM FIELD
    ========================================================= */
