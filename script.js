@@ -496,176 +496,137 @@ function sendResultToBackend(result) {
 
     return new Promise((resolve, reject) => {
 
-
-        /*
-         * Hidden iframe method.
-         *
-         * This avoids the CORS problem that can occur
-         * with Google Apps Script Web Apps.
-         */
-
-        const iframe =
-            document.createElement("iframe");
-
-
-        iframe.name =
-            "quizSubmissionFrame";
-
-
-        iframe.style.display =
-            "none";
-
-
-        document.body.appendChild(iframe);
-
-
-        const form =
-            document.createElement("form");
-
-
-        form.method =
-            "POST";
-
-
-        form.action =
-            QUIZ_BACKEND_URL;
-
-
-        form.target =
-            "quizSubmissionFrame";
-
-
-        form.style.display =
-            "none";
-
-
-        /* Candidate information */
-
-        addField(
-            form,
-            "name",
-            state.candidate.name
-        );
-
-
-        addField(
-            form,
-            "enrollment",
-            state.candidate.enrollment
-        );
-
-
-        addField(
-            form,
-            "course",
-            state.candidate.course
-        );
-
-
-        /* Result */
-
-        addField(
-            form,
-            "total",
-            result.total
-        );
-
-
-        addField(
-            form,
-            "aptitude",
-            result.score.APTITUDE
-        );
-
-
-        addField(
-            form,
-            "computer",
-            result.score.COMPUTER
-        );
-
-
-        addField(
-            form,
-            "reasoning",
-            result.score.REASONING
-        );
-
-
-        addField(
-            form,
-            "coding",
-            result.score.CODING
-        );
-
-
-        addField(
-            form,
-            "attempted",
-            result.attempted
-        );
-
-
-        addField(
-            form,
-            "wrong",
-            result.wrong
-        );
-
-
-        addField(
-            form,
-            "unanswered",
-            result.unanswered
-        );
-
-
-        addField(
-            form,
-            "timeTaken",
-            result.timeTaken
-        );
-
-
-        addField(
-            form,
-            "status",
-            "SUBMITTED"
-        );
-
-
-        document.body.appendChild(form);
-
-
-        /*
-         * Submit to Apps Script.
-         */
-
         try {
+
+            const form = document.createElement("form");
+
+            form.method = "POST";
+
+            form.action = QUIZ_BACKEND_URL;
+
+            form.target = "_blank";
+
+            form.style.display = "none";
+
+
+            /* =========================
+               CANDIDATE INFORMATION
+               ========================= */
+
+            addField(
+                form,
+                "name",
+                state.candidate.name
+            );
+
+            addField(
+                form,
+                "enrollment",
+                state.candidate.enrollment
+            );
+
+            addField(
+                form,
+                "course",
+                state.candidate.course
+            );
+
+
+            /* =========================
+               RESULT INFORMATION
+               ========================= */
+
+            addField(
+                form,
+                "total",
+                result.total
+            );
+
+            addField(
+                form,
+                "aptitude",
+                result.score.APTITUDE
+            );
+
+            addField(
+                form,
+                "computer",
+                result.score.COMPUTER
+            );
+
+            addField(
+                form,
+                "reasoning",
+                result.score.REASONING
+            );
+
+            addField(
+                form,
+                "coding",
+                result.score.CODING
+            );
+
+            addField(
+                form,
+                "attempted",
+                result.attempted
+            );
+
+            addField(
+                form,
+                "wrong",
+                result.wrong
+            );
+
+            addField(
+                form,
+                "unanswered",
+                result.unanswered
+            );
+
+            addField(
+                form,
+                "timeTaken",
+                result.timeTaken
+            );
+
+            addField(
+                form,
+                "status",
+                "SUBMITTED"
+            );
+
+
+            document.body.appendChild(form);
+
+
+            /*
+             * Submit to Google Apps Script.
+             */
 
             form.submit();
 
+
             /*
-             * Give Apps Script time to receive
-             * the request.
+             * Keep the form alive long enough
+             * for the browser to complete the request.
              */
 
             setTimeout(() => {
-
-                iframe.remove();
 
                 form.remove();
 
                 resolve();
 
-            }, 1500);
+            }, 5000);
 
 
         } catch (error) {
 
-            iframe.remove();
-
-            form.remove();
+            console.error(
+                "Quiz backend error:",
+                error
+            );
 
             reject(error);
 
@@ -674,7 +635,6 @@ function sendResultToBackend(result) {
     });
 
 }
-
 
 /* =========================================================
    ADD FORM FIELD
