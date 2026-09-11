@@ -1,439 +1,260 @@
-/* =========================================================
-   HACKATHON 2026 — QUIZ BACKEND
-   GOOGLE APPS SCRIPT
-   ========================================================= */
-
-
-/* =========================================================
-   SETTINGS
-   ========================================================= */
-
-// IMPORTANT:
-// Change this to the ID of your QUIZ RESULTS Google Sheet.
-
-const SPREADSHEET_ID = "PASTE_YOUR_QUIZ_SHEET_ID_HERE";
-
-
-// Name of the sheet/tab inside the spreadsheet.
-
+const SPREADSHEET_ID = "1YGzSHMwQNofgTO5T00jPSmN8LW_YlWRv0MuBLSxTp1s";
 const SHEET_NAME = "Quiz Results";
 
 
-/* =========================================================
-   DO GET
-   ========================================================= */
-
-function doGet(e) {
-
-    return ContentService
-        .createTextOutput(
-            JSON.stringify({
-                status: "success",
-                message: "HACKATHON 2026 Quiz Backend is LIVE."
-            })
-        )
-        .setMimeType(
-            ContentService.MimeType.JSON
-        );
-
+function doGet() {
+  return ContentService
+    .createTextOutput("HACKATHON 2026 QUIZ BACKEND IS LIVE");
 }
 
-
-/* =========================================================
-   DO POST
-   ========================================================= */
 
 function doPost(e) {
 
-    try {
+  try {
 
-        if (!e || !e.parameter) {
+    const sheet = getSheet();
 
-            return response(
-                "error",
-                "No submission data received."
-            );
+    const data = e.parameter;
 
-        }
+    const name = data.name || "";
+    const enrollment = data.enrollment || "";
+    const course = data.course || "";
 
+    const total = data.total || 0;
+    const aptitude = data.aptitude || 0;
+    const computer = data.computer || 0;
+    const reasoning = data.reasoning || 0;
+    const coding = data.coding || 0;
 
-        const data = e.parameter;
+    const attempted = data.attempted || 0;
+    const wrong = data.wrong || 0;
+    const unanswered = data.unanswered || 0;
 
+    const timeTaken = data.timeTaken || 0;
 
-        /* -----------------------------------------
-           CANDIDATE INFORMATION
-           ----------------------------------------- */
+    const status = data.status || "SUBMITTED";
 
-        const name =
-            clean(data.name);
 
-        const enrollment =
-            clean(data.enrollment);
+    if (!name || !enrollment || !course) {
 
-        const course =
-            clean(data.course);
-
-
-        /* -----------------------------------------
-           RESULT INFORMATION
-           ----------------------------------------- */
-
-        const total =
-            numberValue(data.total);
-
-        const aptitude =
-            numberValue(data.aptitude);
-
-        const computer =
-            numberValue(data.computer);
-
-        const reasoning =
-            numberValue(data.reasoning);
-
-        const coding =
-            numberValue(data.coding);
-
-        const attempted =
-            numberValue(data.attempted);
-
-        const wrong =
-            numberValue(data.wrong);
-
-        const unanswered =
-            numberValue(data.unanswered);
-
-        const timeTaken =
-            numberValue(data.timeTaken);
-
-
-        const status =
-            clean(data.status);
-
-
-        /* -----------------------------------------
-           BASIC VALIDATION
-           ----------------------------------------- */
-
-        if (!name) {
-
-            return response(
-                "error",
-                "Participant name is missing."
-            );
-
-        }
-
-
-        if (!enrollment) {
-
-            return response(
-                "error",
-                "Enrollment number is missing."
-            );
-
-        }
-
-
-        if (!course) {
-
-            return response(
-                "error",
-                "Course is missing."
-            );
-
-        }
-
-
-        /* -----------------------------------------
-           OPEN SPREADSHEET
-           ----------------------------------------- */
-
-        const spreadsheet =
-            SpreadsheetApp.openById(
-                SPREADSHEET_ID
-            );
-
-
-        let sheet =
-            spreadsheet.getSheetByName(
-                SHEET_NAME
-            );
-
-
-        /* -----------------------------------------
-           CREATE SHEET IF REQUIRED
-           ----------------------------------------- */
-
-        if (!sheet) {
-
-            sheet =
-                spreadsheet.insertSheet(
-                    SHEET_NAME
-                );
-
-
-            sheet.appendRow([
-
-                "Timestamp",
-
-                "Name",
-
-                "Enrollment Number",
-
-                "Course",
-
-                "Total Score",
-
-                "Aptitude",
-
-                "Computer",
-
-                "Reasoning",
-
-                "Coding",
-
-                "Attempted",
-
-                "Wrong",
-
-                "Unanswered",
-
-                "Time Taken (Seconds)",
-
-                "Status"
-
-            ]);
-
-        }
-
-
-        /* -----------------------------------------
-           PREVENT DUPLICATE SUBMISSION
-           ----------------------------------------- */
-
-        const lock =
-            LockService.getScriptLock();
-
-
-        lock.waitLock(10000);
-
-
-        try {
-
-            const lastRow =
-                sheet.getLastRow();
-
-
-            if (lastRow > 1) {
-
-                const enrollmentValues =
-                    sheet
-                        .getRange(
-                            2,
-                            3,
-                            lastRow - 1,
-                            1
-                        )
-                        .getValues();
-
-
-                const duplicate =
-                    enrollmentValues.some(
-                        row =>
-                            String(row[0])
-                                .trim()
-                                .toLowerCase()
-                            ===
-                            enrollment
-                                .trim()
-                                .toLowerCase()
-                    );
-
-
-                if (duplicate) {
-
-                    return response(
-                        "duplicate",
-                        "This Enrollment Number has already submitted the quiz."
-                    );
-
-                }
-
-            }
-
-
-            /* -----------------------------------------
-               SAVE RESULT
-               ----------------------------------------- */
-
-            sheet.appendRow([
-
-                new Date(),
-
-                name,
-
-                enrollment,
-
-                course,
-
-                total,
-
-                aptitude,
-
-                computer,
-
-                reasoning,
-
-                coding,
-
-                attempted,
-
-                wrong,
-
-                unanswered,
-
-                timeTaken,
-
-                status || "SUBMITTED"
-
-            ]);
-
-
-            SpreadsheetApp.flush();
-
-
-            return response(
-                "success",
-                "Quiz result saved successfully."
-            );
-
-
-        } finally {
-
-            lock.releaseLock();
-
-        }
-
-
-    } catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        return response(
-            "error",
-            "Unable to save quiz result."
-        );
+      return output(
+        "ERROR: Missing student information"
+      );
 
     }
 
-}
 
+    /* CHECK DUPLICATE ENROLLMENT */
 
-/* =========================================================
-   RESPONSE
-   ========================================================= */
+    const lastRow = sheet.getLastRow();
 
-function response(status, message) {
+    if (lastRow > 1) {
 
-    return ContentService
-        .createTextOutput(
-            JSON.stringify({
+      const existing =
+        sheet
+          .getRange(2, 3, lastRow - 1, 1)
+          .getValues();
 
-                status: status,
+      for (let i = 0; i < existing.length; i++) {
 
-                message: message
+        if (
+          String(existing[i][0])
+            .trim()
+            .toLowerCase()
+          ===
+          String(enrollment)
+            .trim()
+            .toLowerCase()
+        ) {
 
-            })
-        )
-        .setMimeType(
-            ContentService.MimeType.JSON
-        );
-
-}
-
-
-/* =========================================================
-   CLEAN TEXT
-   ========================================================= */
-
-function clean(value) {
-
-    return String(
-        value == null
-            ? ""
-            : value
-    ).trim();
-
-}
-
-
-/* =========================================================
-   NUMBER CONVERSION
-   ========================================================= */
-
-function numberValue(value) {
-
-    const n =
-        Number(value);
-
-
-    return isNaN(n)
-        ? 0
-        : n;
-
-}
-
-
-/* =========================================================
-   TEST FUNCTION
-   ========================================================= */
-
-function testQuizSubmission() {
-
-    const testData = {
-
-        parameter: {
-
-            name: "TEST STUDENT",
-
-            enrollment: "TEST001",
-
-            course: "BCA",
-
-            total: "75",
-
-            aptitude: "23",
-
-            computer: "16",
-
-            reasoning: "19",
-
-            coding: "17",
-
-            attempted: "95",
-
-            wrong: "20",
-
-            unanswered: "5",
-
-            timeTaken: "4200",
-
-            status: "TEST"
+          return output(
+            "DUPLICATE: This enrollment number has already submitted."
+          );
 
         }
 
-    };
+      }
+
+    }
 
 
-    const result =
-        doPost(testData);
+    /* SAVE RESULT */
+
+    sheet.appendRow([
+
+      new Date(),
+
+      name,
+
+      enrollment,
+
+      course,
+
+      total,
+
+      aptitude,
+
+      computer,
+
+      reasoning,
+
+      coding,
+
+      attempted,
+
+      wrong,
+
+      unanswered,
+
+      timeTaken,
+
+      status
+
+    ]);
 
 
-    Logger.log(
-        result.getContent()
+    SpreadsheetApp.flush();
+
+
+    return output(
+      "SUCCESS: Quiz result saved."
     );
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    return output(
+      "ERROR: " + error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   GET SHEET
+   ===================================================== */
+
+function getSheet() {
+
+  const spreadsheet =
+    SpreadsheetApp.openById(
+      SPREADSHEET_ID
+    );
+
+
+  let sheet =
+    spreadsheet.getSheetByName(
+      SHEET_NAME
+    );
+
+
+  if (!sheet) {
+
+    sheet =
+      spreadsheet.insertSheet(
+        SHEET_NAME
+      );
+
+  }
+
+
+  /* ADD HEADERS IF SHEET IS EMPTY */
+
+  if (sheet.getLastRow() === 0) {
+
+    sheet.appendRow([
+
+      "Timestamp",
+      "Name",
+      "Enrollment Number",
+      "Course",
+      "Total Score",
+      "Aptitude",
+      "Computer",
+      "Reasoning",
+      "Coding",
+      "Attempted",
+      "Wrong",
+      "Unanswered",
+      "Time Taken (Seconds)",
+      "Status"
+
+    ]);
+
+  }
+
+
+  return sheet;
+
+}
+
+
+/* =====================================================
+   OUTPUT
+   ===================================================== */
+
+function output(message) {
+
+  return ContentService
+    .createTextOutput(message)
+    .setMimeType(
+      ContentService.MimeType.TEXT
+    );
+
+}
+
+
+/* =====================================================
+   DIRECT TEST
+   ===================================================== */
+
+function testQuizSubmission() {
+
+  const fakeEvent = {
+
+    parameter: {
+
+      name: "TEST STUDENT",
+
+      enrollment: "TEST001",
+
+      course: "BCA",
+
+      total: "75",
+
+      aptitude: "23",
+
+      computer: "16",
+
+      reasoning: "19",
+
+      coding: "17",
+
+      attempted: "95",
+
+      wrong: "20",
+
+      unanswered: "5",
+
+      timeTaken: "4200",
+
+      status: "TEST"
+
+    }
+
+  };
+
+
+  const result =
+    doPost(fakeEvent);
+
+
+  Logger.log(
+    result.getContent()
+  );
 
 }
